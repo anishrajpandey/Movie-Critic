@@ -1,7 +1,4 @@
 const queryTitle = document.querySelector("h1[data-moviename]");
-
-// const query = queryTitle.textContent.split(" ").join("+").toLowerCase();
-
 const data = document.cookie;
 function getCookie(name) {
   function escape(s) {
