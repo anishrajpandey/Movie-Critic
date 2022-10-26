@@ -51,7 +51,8 @@ if (Response == "True") {
   let err = document.createElement("div");
   err.style =
     "position:fixed;inset:0;background:crimson;height:calc(100vh - 70px);width:100vw;color:white;display:grid;place-items:center;top:70px;font-size:2rem";
-  err.textContent = "Error !! No Such Movie Found";
+  err.innerHTML = `ERROR NO SUCH MOVIE FOUND <br/>
+  <a href="/">Go to home page</a>`;
   errContaier.appendChild(err);
   console.log(err);
   const movieInfo = document.querySelector(".movieInfo");
@@ -98,3 +99,39 @@ function handleValidateForm(e) {
   }
 }
 submitbtn.addEventListener("click", handleValidateForm);
+
+//showing no review message
+const reviewsContainer = document.querySelector(".reviewContainer .reviews");
+if (!reviewsContainer.children[1]) {
+  reviewsContainer.appendChild(document.createElement("div"));
+  reviewsContainer.children[1].textContent = "NO REVIEWS YET";
+  reviewsContainer.children[1].align = "center";
+}
+//trailer
+
+const trailerContainer = document.querySelector(".trailerContainer");
+const showTrailerButton = trailerContainer.children[0];
+console.log(showTrailerButton);
+showTrailerButton.addEventListener("click", handleShowTrailer);
+
+async function handleShowTrailer(e) {
+  e.target.disabled = true;
+  e.target.textContent = "Loading...";
+  let res = await fetch(
+    `https://imdb-api.com/API/YouTubeTrailer/k_2dg4exfy/${getCookie("imdbID")}`
+  );
+  let { videoId } = await res.json();
+  console.log({ imdbID: getCookie("imdbID"), videoId });
+  const iframe = document.createElement("iframe");
+  iframe.src = `https://www.youtube.com/embed/${videoId}?list=RD6FEsFvZ-hqY`;
+  iframe.allowFullscreen = true;
+  const iframeContainer = document.createElement("div");
+  iframeContainer.classList.add("trailer");
+  iframeContainer.append(iframe);
+  e.target.parentElement.append(iframeContainer);
+  iframeContainer.scrollIntoView({
+    behavior: "smooth",
+    block: "end",
+  });
+  e.target.textContent = getCookie("Title") + "- Trailer on youtube";
+}

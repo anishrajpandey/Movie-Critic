@@ -1630,9 +1630,12 @@ searchForm.onsubmit = (e) => {
 };
 const observer = new IntersectionObserver(
   (entries) => {
-    entries[0].target.classList.toggle("show", entries[0].isIntersecting);
-    if (entries[0].isIntersecting) {
-      console.log(entries[0].target);
+    for (entry of entries) {
+      entry.target.classList.toggle("show", entry.isIntersecting);
+
+      if (entry.isIntersecting) {
+        console.log(entry.target);
+      }
     }
   },
   {

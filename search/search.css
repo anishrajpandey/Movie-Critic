@@ -181,6 +181,9 @@ html {
   width: 70%;
   margin: 0 auto;
 }
+.reviewContainer .reviews {
+  min-height: 100px;
+}
 .reviewContainer .reviews .review .header {
   display: flex;
   justify-content: space-between;
@@ -255,4 +258,67 @@ html {
   .stars[data-stars="5"]
   svg:nth-child(-n + 5) {
   fill: yellow;
+}
+
+.trailerContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+.trailerContainer .trailer {
+  position: relative;
+  height: 0;
+  padding-bottom: 56.25%;
+  padding-top: 25px;
+}
+.trailerContainer .trailer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (width < 500px) {
+  .trailerContainer {
+    width: 100%;
+  }
+  .trailerContainer iframe {
+    width: 100vw;
+    aspect-ratio: 16/9;
+  }
+}
+.trailerContainer .trailer {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  aspect-ratio: 16/9;
+}
+
+.trailerContainer .trailer iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.trailerContainer button {
+  display: flex;
+  width: 100%;
+  border-radius: 8px;
+  background-color: #95fffb;
+  font-weight: bold;
+  font-size: 1.5rem;
+  height: 50px;
+  padding: 10px;
+  justify-content: center;
+  margin-block: 2rem;
+  cursor: pointer;
+}
+
+.trailerContainer button svg {
+  fill: red;
+  width: 30px;
+  margin: 0 10px;
 }
