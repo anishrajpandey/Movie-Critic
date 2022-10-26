@@ -1,0 +1,149 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+nav {
+  height: 70px;
+}
+
+.searchContainer {
+  height: calc(100vh - 70px);
+  background-color: rgb(210, 36, 36);
+  position: relative;
+  display: grid;
+  place-items: center;
+}
+.searchContainer > h1 {
+  color: white;
+  font-size: 2.5rem;
+  padding: 1rem;
+  text-align: center;
+  margin-bottom: 10rem;
+  /* background-color: rgb(0, 136, 255); */
+  /* margin-top: 12rem; */
+  /* height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center; */
+}
+.searchContainer .searchBarContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.searchBarContainer .searchBar {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  position: relative;
+}
+.searchContainer .searchBar input {
+  min-width: min(500px, 90vw);
+  /* width: min(600px, 90%); */
+  height: 75px;
+  border-radius: 2.1rem;
+  font-size: 1.9em;
+  padding: 0.78rem 1.3rem;
+  background-color: transparent;
+  border: 2px solid rgb(255, 221, 221);
+  color: white;
+  padding-right: 50px !important;
+}
+.searchContainer .searchBar input::placeholder {
+  font-size: 1.5rem;
+}
+.searchContainer .searchBar input:focus {
+  outline-color: white !important;
+}
+.searchContainer .searchBar img {
+  width: 70px;
+  aspect-ratio: 1;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+}
+.searchContainer .searchBar button {
+  color: transparent;
+  width: 0 !important;
+}
+main.mainContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 270px));
+  background-color: rgb(42, 42, 37);
+  justify-content: center;
+  width: 100vw;
+  color: rgb(255, 255, 255);
+  gap: 1rem;
+  padding-block: 2rem;
+}
+.movieItem {
+  min-width: 200px;
+  max-width: 270px;
+  position: relative;
+  height: 350px;
+  overflow: hidden !important;
+  cursor: pointer;
+  margin: 0.35em auto;
+}
+.movieItem .imageContainer {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.movieItem .imageContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1);
+}
+.movieItem .contentContainer {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.792);
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0.78rem;
+  transition: all 200ms linear;
+  overflow: hidden;
+}
+.movieItem .content {
+  translate: 0 200px;
+}
+.movieItem:hover .contentContainer {
+  opacity: 1;
+}
+.movieItem:hover .content {
+  animation: showText 300ms ease-in-out forwards;
+}
+@keyframes showText {
+  to {
+    translate: 0 0;
+  }
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 26px !important;
+  }
+  .searchBarContainer input {
+    width: 98vw;
+    /* min-width: 90vw !important; */
+  }
+  .searchContainer .searchBar input::placeholder {
+    font-size: 1.2rem;
+  }
+}

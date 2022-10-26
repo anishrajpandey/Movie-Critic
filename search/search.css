@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+nav {
+  height: 70px;
+}
+.main-search-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(42, 42, 37);
+  color: white;
+}
+html {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.movieInfo {
+  background-color: hsl(60, 6%, 20%);
+  width: clamp(300px, 70%, 100vw);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 100vh;
+  padding: 1rem;
+}
+.movieInfo .imageContainer {
+  width: min(50%, 400px);
+  display: grid;
+  place-content: center;
+}
+.movieInfo .imageContainer img {
+  object-fit: cover;
+}
+.movieInfo h1 {
+  text-align: center;
+  color: rgb(0, 225, 255);
+}
+.movieInfo .genres {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+  gap: 12px;
+  width: min(70%, 400px);
+}
+.movieInfo .genres div {
+  width: fit-content;
+  padding: 0.5rem;
+  background-color: honeydew;
+  color: black;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 150ms linear;
+}
+.movieInfo .genres div:hover {
+  background-color: rgb(42, 42, 37);
+  cursor: pointer;
+  color: white;
+}
+.movieInfo .plot {
+  width: min(400px, 100%);
+  font-style: italic;
+}
+.movieInfo .castInfo {
+  width: fit-content;
+
+  margin: 3rem auto;
+}
+.movieInfo .reviewContainer .stars svg {
+  width: 50px;
+  fill: white;
+  stroke: 5px black;
+}
+.movieInfo .reviewContainer svg[data-dark="true"] {
+  fill: yellow;
+}
+.movieInfo .reviewContainer svg[data-dark="false"] {
+  fill: white;
+}
+.reviewContainer .reviews .review {
+  background-color: rgb(214, 167, 255);
+  color: black;
+  padding: 0.75rem;
+  margin: 20px auto;
+  width: 70%;
+  border-radius: 5px;
+}
+@media (width < 700px) {
+  .reviewContainer .reviews .review {
+    width: 100% !important;
+  }
+  .reviewContainer h2 {
+    font-size: 1rem;
+  }
+}
+.reviewContainer {
+  width: 100%;
+}
+.reviewContainer form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem 0;
+  border-radius: 0.3em;
+  margin: auto 0;
+  background-color: rgba(255, 255, 255, 0.0536);
+  margin-bottom: 2rem;
+}
+.reviewContainer form textarea {
+  font-size: 1.3rem;
+  padding: 0.35em;
+  background-color: rgb(255 255 255/80%);
+  width: 80%;
+}
+.reviewContainer form #userName {
+  width: 100%;
+}
+.nameInput {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+}
+#userName {
+  display: inline-block;
+  margin: auto;
+  height: 50px;
+  padding: 12px;
+  font-size: 1.1rem;
+  border-radius: 7px;
+  background-color: rgb(255 255 255/80%);
+}
+.reviewContainer h2 {
+  color: rgb(255, 244, 148);
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: 5px wavy underline rgb(255, 157, 0);
+  font-size: 1.85rem;
+  margin-bottom: 1rem;
+}
+.reviewContainer form button {
+  width: 70%;
+  background-color: rgb(14, 223, 255);
+  text-align: center;
+  padding: 22px 10px;
+  border-radius: 8px;
+  border: 0;
+  margin-top: 8px;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.reviewContainer form button:disabled {
+  background-color: gray;
+}
+@media (width < 550px) {
+  .movieInfo {
+    width: 100% !important;
+  }
+  .reviewContainer form textarea,
+  .reviewContainer form :is(.nameInput, #userName) {
+    width: 100% !important;
+  }
+  .reviewContainer form button {
+    width: 100%;
+  }
+  .reviewContainer .reviews .review .header .stars svg {
+    width: 25px !important;
+  }
+}
+.reviewContainer form textarea {
+  width: 70%;
+  margin: 0 auto;
+}
+.reviewContainer .reviews .review .header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.reviewContainer .reviews .review .header .userName {
+  font-weight: bold;
+}
+.reviewContainer .reviews .review .header .stars svg {
+  width: 30px;
+  fill: none;
+  stroke-opacity: 1;
+  stroke-width: 8px;
+  stroke: black;
+  -webkit-text-stroke-color: black;
+}
+
+/* setting the background of the review according to the no of stars
+ */
+.reviewContainer
+  .reviews
+  .review:has(.header :is(.stars[data-stars="4"], .stars[data-stars="5"])) {
+  background-color: #98ff89;
+}
+.reviewContainer
+  .reviews
+  .review:has(.header :is(.stars[data-stars="0"], .stars[data-stars="1"])) {
+  background-color: #e24141;
+}
+.reviewContainer
+  .reviews
+  .review:has(.header :is(.stars[data-stars="2"], .stars[data-stars="3"])) {
+  background-color: rgb(214, 167, 255);
+}
+.reviewContainer
+  .reviews
+  .review
+  .header
+  .stars[data-stars="1"]
+  svg:first-child {
+  fill: yellow;
+}
+.reviewContainer
+  .reviews
+  .review
+  .header
+  .stars[data-stars="2"]
+  svg:nth-child(-n + 2) {
+  fill: yellow;
+}
+.reviewContainer
+  .reviews
+  .review
+  .header
+  .stars[data-stars="3"]
+  svg:nth-child(-n + 3) {
+  fill: yellow;
+}
+.reviewContainer
+  .reviews
+  .review
+  .header
+  .stars[data-stars="4"]
+  svg:nth-child(-n + 4) {
+  fill: yellow;
+}
+.reviewContainer
+  .reviews
+  .review
+  .header
+  .stars[data-stars="5"]
+  svg:nth-child(-n + 5) {
+  fill: yellow;
+}

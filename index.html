@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie app</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>this is nav</nav>
+    <div class="searchContainer">
+      <h1>Search for your favourite movie</h1>
+      <div class="searchBarContainer">
+        <div class="searchBar">
+          <form method="post" action="./search/index.php" id="searchform">
+            <input
+              type="text"
+              name="moviename"
+              id="moviename"
+              placeholder="What are you looking for..."
+            />
+
+            <img src="./search.png" alt="search" id="searchlogo" />
+          </form>
+        </div>
+      </div>
+    </div>
+    <main class="mainContainer"></main>
+    <!-- <form method="post" action="./backend.php">
+      Name:<input type="text" name="name" /><br />
+      Message:<input type="text" name="message" />
+      <button type="submit">submit</button>
+    </form> -->
+    <!-- <a href="https://www.flaticon.com/free-icons/search" title="search icons"
+      >Search icons created by Rizki Ahmad Fauzi - Flaticon</a
+    > -->
+
+    <script src="script2.js"></script>
+  </body>
+</html>

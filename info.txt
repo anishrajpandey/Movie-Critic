@@ -1,0 +1,22 @@
+MySQL user name	epiz_32818088
+MySQL password	Same as your cpanel password
+MySQL host name	sql106.epizy.com
+MySQL port	3306
+w=Jr?q)@4TW5aLV
+ACny0AC320ejVP
+
+
+
+imdb api key= k_2dg4exfy
+
+
+omdb api key= b0cbd44d
+
+
+
+
+
+
+
+
+
