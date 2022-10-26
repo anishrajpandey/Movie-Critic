@@ -1,4 +1,3 @@
-// import { moviedata } from "../script2.js";
 const queryTitle = document.querySelector("h1[data-moviename]");
 
 // const query = queryTitle.textContent.split(" ").join("+").toLowerCase();
