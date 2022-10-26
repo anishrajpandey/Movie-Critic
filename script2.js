@@ -1550,9 +1550,9 @@ let data = {
 
 const mainContainer = document.querySelector(".mainContainer");
 const searchImage = document.getElementById("searchlogo");
-console.log(searchImage);
+
 const searchForm = document.querySelector("#searchform");
-console.log(searchForm);
+// console.log(searchForm);
 
 async function handleSubmit(query) {
   console.log(query);
@@ -1628,7 +1628,17 @@ searchForm.onsubmit = (e) => {
   e.preventDefault();
   handleSubmit(query);
 };
-
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries[0].target.classList.toggle("show", entries[0].isIntersecting);
+    if (entries[0].isIntersecting) {
+      console.log(entries[0].target);
+    }
+  },
+  {
+    threshold: 1,
+  }
+);
 for (data of data.movies) {
   const movieItem = document.createElement("div");
   movieItem.classList.add("movieItem");
@@ -1653,6 +1663,7 @@ for (data of data.movies) {
   h5.textContent = data.genres[0];
   content.append(h3, p, h5);
   contentContainer.append(content);
+  movieItem.append(contentContainer);
   mainContainer.append(movieItem);
 
   movieItem.addEventListener("click", (e) => {
@@ -1663,33 +1674,7 @@ for (data of data.movies) {
     console.log(query);
     handleSubmit(query);
   });
-  movieItem.append(contentContainer);
+  if (window.matchMedia("(hover:none)").matches) {
+    observer.observe(movieItem);
+  }
 }
-
-// const movieItem = document.createElement("div");
-// movieItem.classList.add("movieItem");
-
-// const imageContainer = document.createElement("div");
-// imageContainer.classList.add("imageContainer");
-
-// const image = document.createElement("img");
-// image.src =
-//   "https://m.media-amazon.com/images/M/MV5BZGMzMTM1ZDMtYjg0OS00MGM3LWJmZTUtOGEzMDE4Y2ZkODg0L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMzMyMTYzNjY@._V1_Ratio0.7273_AL_.jpg";
-// imageContainer.appendChild(image);
-// movieItem.appendChild(imageContainer);
-
-// const contentContainer = document.createElement("div");
-// contentContainer.classList.add("contentContainer");
-// const content = document.createElement("div");
-// content.classList.add("content");
-// const h3 = document.createElement("h3");
-// const p = document.createElement("p");
-// const h5 = document.createElement("h5");
-// h3.textContent = "The room in 2f";
-// p.textContent = "this is a description";
-// h5.textContent = "ImdB rating 8/10";
-// content.append(h3, p, h5);
-// contentContainer.append(content);
-// movieItem.append(contentContainer);
-
-// mainContainer.append(movieItem);-
