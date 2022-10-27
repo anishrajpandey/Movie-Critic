@@ -1681,4 +1681,3 @@ for (data of data.movies) {
     observer.observe(movieItem);
   }
 }
-// s
